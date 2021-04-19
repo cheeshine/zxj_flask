@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <h1>简易计数器</h1>
+        <p>{{ session['x'] }} times.</p>
+        <form action='/double' method='post'>
+            <input type="submit" value="+2">
+        </form>
+        <br>
+        <form action='/reset' method='post'>
+            <input type="submit" value="重置">
+        </form>
+    </body>
+
+</html>

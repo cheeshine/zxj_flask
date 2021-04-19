@@ -1,0 +1,27 @@
+#创建虚拟secrey密钥以便使用会话
+SECRET_KEY = '123456790'
+
+# 创建数据库
+DATABASE_FILE = 'sample_db.sqlite'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATABASE_FILE
+SQLALCHEMY_ECHO = True
+
+# Flask-Security配置
+SECURITY_URL_PREFIX = "/admin"
+SECURITY_PASSWORD_HASH = "pbkdf2_sha512"
+SECURITY_PASSWORD_SALT = "ATGUOHAELKiubahiughaerGOJAEGj"
+
+# Flask-Security URLs, 覆盖
+SECURITY_LOGIN_URL = "/login/"
+SECURITY_LOGOUT_URL = "/logout/"
+SECURITY_REGISTER_URL = "/register/"
+
+SECURITY_POST_LOGIN_VIEW = "/admin/"
+SECURITY_POST_LOGOUT_VIEW = "/admin/"
+SECURITY_POST_REGISTER_VIEW = "/admin/"
+
+# Flask-Security设置
+SECURITY_REGISTERABLE = True
+SECURITY_SEND_REGISTER_EMAIL = False
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+

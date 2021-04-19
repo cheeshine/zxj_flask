@@ -1,0 +1,19 @@
+<!doctype html>
+{% from "_helpers.html" import link_to %}
+<head>
+    <title>使用主题 &mdash; {{ title }}</title>
+    <link rel=stylesheet type=text/css href="{{ theme_static('style.css') }}">
+    {% block head %}{% endblock head %}
+</head>
+<div class=page>
+    <h1>使用主题</h1>
+    <div class=nav>
+        {{ link_to('Index', 'index') }} |
+        {{ link_to('Archive', 'archive') }} |
+        {{ link_to('About', 'about') }} |
+        {{ link_to('Themes', 'themes') }}
+    </div>
+
+    {% block body %}{% endblock %}
+</div>
+

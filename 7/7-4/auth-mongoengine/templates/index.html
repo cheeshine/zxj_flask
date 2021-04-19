@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <div>
+            {% if user and user.is_authenticated %}
+               你好 {{ user.login }}! <a href="{{ url_for('logout_view') }}">退出</a>
+            {% else %}
+                欢迎你游客！
+                <a href="{{ url_for('login_view') }}">登录</a>&nbsp;<a href="{{ url_for('register_view') }}">注册</a>
+            {% endif %}
+        </div>
+        <div>
+            <a href="{{ url_for('admin.index') }}">来到后台管理页面</a>
+        </div>
+    </body>
+</html>

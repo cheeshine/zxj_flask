@@ -1,0 +1,20 @@
+<script>
+$(function(){
+    $("#like-btn").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "/like",
+            data: {path:"{{ path }}"},
+            datatype:'json',
+            success: function(data) {
+                var data = JSON.parse(data)
+                $("#like-count").html(data.count);
+            }
+        });
+    });
+});
+</script>
+<span class="label label-primary">Read {{ view_count }}</span>
+<button type="button" class="btn btn-default btn-sm {% if like_done %} disabled {% endif %}" id="like-btn">
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> like <span class="label label-success" id="like-count">{{ like_count|default('0') }}</span>
+</button>

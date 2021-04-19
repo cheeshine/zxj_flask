@@ -1,0 +1,38 @@
+<!doctype html>
+{#  display.html -- Displays the guestbook entries and a submit form
+    (C) 2010 Matthew "LeafStorm" Frazier
+    Part of Flask-CouchDB
+    Released under the MIT/X11 license, see LICENSE for details
+#}
+<title>图书系统</title>
+
+<h1>图书系统</h1>
+
+<h2>发布图书</h2>
+
+<form method=post action="{{ url_for('post') }}">
+    <dl>
+        <dt><label for=author>书名</label>
+        <dd><input type=text name=author>
+
+        <dt><label for=message>简介</label>
+        <dd><textarea name=message rows=10 cols=40></textarea>
+    </dl>
+
+    <p><input type=submit value=发布>
+</form>
+
+<h2>图书列表</h2>
+
+<ul>
+{%- for signature in page.items %}
+    <li><p>{{ signature.message }}
+        <p><strong>{{ signature.author }}</strong>
+           on {{ signature.time.strftime('%A, %B %d at %I:%M:%S %p') }}
+{%- endfor %}
+</ul>
+
+<p>
+    {% if page.prev %}<a href="{{ url_for('display', start=page.prev) }}">&laquo; 上一个</a>{% endif %}
+    {% if page.next %}<a href="{{ url_for('display', start=page.next) }}">下一个 &raquo;</a>{% endif %}
+

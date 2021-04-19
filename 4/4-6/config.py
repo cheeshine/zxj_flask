@@ -1,0 +1,9 @@
+DB_USER = 'root'
+DB_PASSWORD = '66688888'
+DB_HOST = 'localhost'
+DB_DB = 'test'
+
+DEBUG = True
+
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_DATABASE_URI = 'mysql://' + DB_USER + ':' + DB_PASSWORD + '@' + DB_HOST + '/' + DB_DB

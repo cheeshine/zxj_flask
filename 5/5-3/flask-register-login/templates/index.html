@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<h4>
+    <a href="/register">注册</a>
+</h4>
+<h4>
+    <a href="/login">登录</a>
+</h4>
+
+<h5>
+    你好： {{ session['email'] }}
+</h5>
+
+{% endblock body %}

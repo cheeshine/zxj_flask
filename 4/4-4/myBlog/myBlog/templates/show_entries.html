@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+     {% if session.logged_in %}
+        <form action="{{ url_for('add_entry')}}" method="post" class="add_entry">  <!--url_for重定向的('XXX'),XXX是指路由的函数名-->
+            <dl>
+                <dt>Title:</dt>
+                <dd><input type="text" size=30 name="title"></dd>
+                <dt>Text:</dt>
+                <dd><textarea name="text" rows=5 cols=40></textarea></dd>
+                <dd><input type="submit" value="Share"></dd>
+            </dl>
+        </form>
+{% endif %}
+    <ul class="entries">
+        {% for entry in entries %}
+            {% if entry %}
+                <li>
+                    <h2>{{ entry.title }}</h2>{{ entry.content|safe }}
+                </li>
+            {% else %}
+            <li><em>Unbelievable. No entry here</em>></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

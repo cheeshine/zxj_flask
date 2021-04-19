@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>请发表感慨</h1>
+    <form method="post" action="{{ url_for('signup') }}">
+        <p><label>用户名:</label> <input type="text" name="username" required></p>
+        <p><label>信息:</label> <textarea name="message"></textarea></p>
+        <p><button type="submit">发送</button></p>
+    </form>
+{% endblock %}
+

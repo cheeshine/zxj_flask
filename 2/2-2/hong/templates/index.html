@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% import 'yhong.html' as ui %}
+
+{% block title %}{{ title_name }}{% endblock %}
+
+{% block content %}
+{% set links = [
+    ('主页',url_for('.index')),
+    ('产品',url_for('.service')),
+    ('联系我们',url_for('.about')),
+] %}
+
+<nav>
+    {% for label,link in links %}
+        {% if not loop.first %}|{% endif %}
+        <a href="{% if link is current_link %}#
+        {% else %}
+        {{ link }}
+        {% endif %}
+        ">{{ label }}</a>
+    {% endfor %}
+</nav>
+    <p>{{ self.title() }}</p>
+    {{ ui.input('username') }}
+    {{ ui.input('password',type='password') }}
+{% endblock content %}
+
+{% block footer %}
+    <hr>
+    {{ super() }}
+{% endblock %}

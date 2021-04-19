@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        {% include 'yhead.html' %}
+    {% endblock %}
+</head>
+<body>
+    <header>{% block header %}{% endblock %}</header>
+    <div>{% block content %}<p>Python大神</p>{% endblock %}</div>
+
+    {% for item in items %}
+        <li>{% block loop_item scoped %}{{ item }}{% endblock %}</li>
+    {% endfor %}
+
+    <footer>
+        {% block footer %}
+        <p>Python</p>
+            <p>联系我们:<a href="someone@example.com">xxxxx@example.com</a> </p>
+        {% endblock %}
+    </footer>
+</body>
+</html>
+
